@@ -1,0 +1,116 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local KP = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local Title = Instance.new("TextLabel")
+local Username = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+local Reason = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+local Kick = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+
+--Properties:
+
+KP.Name = "KP"
+KP.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+KP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = KP
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame.Position = UDim2.new(0.240267634, 0, 0.17734161, 0)
+Frame.Size = UDim2.new(0.519902527, 0, 0.645661175, 0)
+
+UICorner.Parent = Frame
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(116, 116, 116)), ColorSequenceKeypoint.new(0.82, Color3.fromRGB(232, 232, 232)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient.Rotation = 90
+UIGradient.Parent = Frame
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.Position = UDim2.new(0, 0, 0.0314796753, 0)
+Title.Size = UDim2.new(1, 0, 0.114666663, 0)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "KICK PANEL"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Username.Name = "Username"
+Username.Parent = Frame
+Username.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Username.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Username.Position = UDim2.new(0.044921875, 0, 0.175999999, 0)
+Username.Size = UDim2.new(0.91015625, 0, 0.159999996, 0)
+Username.ClearTextOnFocus = false
+Username.Font = Enum.Font.Gotham
+Username.PlaceholderText = "Username"
+Username.Text = ""
+Username.TextColor3 = Color3.fromRGB(0, 0, 0)
+Username.TextScaled = true
+Username.TextSize = 14.000
+Username.TextWrapped = true
+
+UICorner_2.Parent = Username
+
+Reason.Name = "Reason"
+Reason.Parent = Frame
+Reason.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Reason.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Reason.Position = UDim2.new(0.044921875, 0, 0.381333321, 0)
+Reason.Size = UDim2.new(0.91015625, 0, 0.384000003, 0)
+Reason.ClearTextOnFocus = false
+Reason.Font = Enum.Font.Gotham
+Reason.PlaceholderText = "Reason"
+Reason.Text = ""
+Reason.TextColor3 = Color3.fromRGB(0, 0, 0)
+Reason.TextSize = 30.000
+Reason.TextWrapped = true
+Reason.TextXAlignment = Enum.TextXAlignment.Left
+Reason.TextYAlignment = Enum.TextYAlignment.Top
+
+UICorner_3.Parent = Reason
+
+Kick.Name = "Kick"
+Kick.Parent = Frame
+Kick.BackgroundColor3 = Color3.fromRGB(132, 132, 132)
+Kick.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Kick.Position = UDim2.new(0.044921875, 0, 0.821333349, 0)
+Kick.Size = UDim2.new(0.91015625, 0, 0.13333334, 0)
+Kick.Font = Enum.Font.GothamBold
+Kick.Text = "KICK"
+Kick.TextColor3 = Color3.fromRGB(0, 0, 0)
+Kick.TextScaled = true
+Kick.TextSize = 14.000
+Kick.TextWrapped = true
+
+UICorner_4.Parent = Kick
+
+-- Scripts:
+
+local function HHRJGFZ_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	local Username = script.Parent.Username
+	local Reason = script.Parent.Reason
+	
+	script.Parent.Kick.MouseButton1Click:Connect(function()
+		local Username = tostring(Username.Text)
+		local Target = game.Players:FindFirstChild(Username)
+		local Reason = tostring(script.Parent.Reason.Text)
+		
+		Target:Kick("You got kicked by an admin, "..Reason)
+	end)
+end
+coroutine.wrap(HHRJGFZ_fake_script)()
